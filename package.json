@@ -1,0 +1,24 @@
+{
+  "name": "quickfix",
+  "version": "0.0.1",
+  "description": "Detects and saves local changes to dependencies that are protected by .gitignore.",
+  "main": "index.js",
+  "author": "maxchehab",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "download-npm-package": "^3.1.11",
+    "find-root": "^1.1.0",
+    "jsonfile": "^4.0.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "bin": {
+    "quickfix": "./index.js"
+  }
+}
