@@ -11,6 +11,7 @@ const {
   copyChanges,
   writeLockFile,
   deleteCache,
+  deleteChanges,
   writeChanges
 } = require("./lib/utils");
 const log = console.log;
@@ -27,6 +28,7 @@ try {
       console.log("> Detected " + changes.length + " changes:");
     } else {
       console.log("> No changes detected.");
+      deleteChanges(root);
       deleteCache();
       return;
     }
@@ -43,10 +45,20 @@ try {
     console.log(chalk.green("> Successfuly saved changes!"));
     return;
   }
+  if (!fs.existsSync(root + "/__quickfix__/quickfix.lock")) {
+    console.log(
+      chalk.red(
+        "> Couldn't locate quickfix.lock. Try adding changes with `quickfix push`."
+      )
+    );
+    return;
+  }
+  let changes = jsonfile.readFileSync(root + "/__quickfix__/quickfix.lock");
+  writeChanges(root, changes);
 } catch (err) {
   if (err.message == "package.json not found in path") {
     log(
-      chalk.red(`Couldn't find any dependencies. Try creating a package.json`)
+      chalk.red(`> Couldn't find any dependencies. Try creating a package.json`)
     );
   } else {
     throw err;
