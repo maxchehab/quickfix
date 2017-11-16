@@ -18,5 +18,5 @@ $ quickfix
 ```
 
 <p align="center">
-  <img src="https://media.giphy.com/media/wt1ZzHUumdeNO/giphy.gif" width="450px" />
+  <img src="https://media.giphy.com/media/3orifiTqyQVa1cTpIc/giphy.gif" width="450px" />
 </p>
