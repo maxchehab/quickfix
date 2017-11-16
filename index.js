@@ -9,29 +9,40 @@ const {
   dependencyBuilder,
   compare,
   copyChanges,
-  writeLockFile
+  writeLockFile,
+  deleteCache,
+  writeChanges
 } = require("./lib/utils");
 const log = console.log;
-
 try {
   const root = finder(process.cwd()).toString();
-  const name = jsonfile.readFileSync(root + "/package.json").name;
 
-  dependencyBuilder(name, root);
+  if (process.argv[2] == "push") {
+    const name = jsonfile.readFileSync(root + "/package.json").name;
 
-  let changes = compare(name, root);
-  if (changes.length) {
-    console.log("> Detected " + changes.length + " changes:");
-  } else {
-    console.log("> No changes detected.");
+    dependencyBuilder(name, root);
+
+    let changes = compare(name, root);
+    if (changes.length) {
+      console.log("> Detected " + changes.length + " changes:");
+    } else {
+      console.log("> No changes detected.");
+      deleteCache();
+      return;
+    }
+    changes.forEach(function(entry) {
+      console.log("\t" + chalk.red(entry.relativePath));
+    });
+
+    copyChanges(changes, root);
+
+    writeLockFile(changes, root);
+
+    deleteCache();
+
+    console.log(chalk.green("> Successfuly saved changes!"));
+    return;
   }
-  changes.forEach(function(entry) {
-    console.log("\t" + chalk.red(entry.relativePath));
-  });
-
-  copyChanges(changes, root);
-
-  writeLockFile(changes, root);
 } catch (err) {
   if (err.message == "package.json not found in path") {
     log(
