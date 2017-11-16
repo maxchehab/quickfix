@@ -1,6 +1,6 @@
 {
   "name": "quickfix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description":
     "Detects and saves local changes to dependencies that are protected by .gitignore.",
   "main": "index.js",
