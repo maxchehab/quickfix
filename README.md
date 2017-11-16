@@ -1,12 +1,12 @@
 # quickfix
 Detects and saves local changes to dependencies that are protected by .gitignore.
 
-# Installation
+## Installation
 ```bash 
 $ yarn global add quickfix
 ```
 
-# Instructions
+## Instructions
 After making changes in `node_modules` run the command:
 ```bash
 $ quickfix push
