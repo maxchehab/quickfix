@@ -7,10 +7,17 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.3.0",
-    "download-npm-package": "^3.1.11",
+    "deasync": "^0.1.10",
+    "dir-compare": "^1.4.0",
     "find-root": "^1.1.0",
+    "fs-extra": "^4.0.2",
+    "has-yarn": "^1.0.0",
     "jsonfile": "^4.0.0",
-    "path": "^0.12.7"
+    "node-run-cmd": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxchehab/quickfix.git"
   },
   "scripts": {
     "test": "jest"
