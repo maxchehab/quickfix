@@ -2,7 +2,7 @@
 
 You've worked 8,000 million-bazillion hours on 4 cups of coffee a minute trying to fix some stupid bug. It's 2am. If it's not fixed by morning Australia will cease to be a country. 
 
-You've found it. It's in a dependency of a dependency of a dependency. You've gone too many layers deep. Making a mirror is gonna take too much time so you just edit the code directly. 
+You've found it. It's in a dependency of a dependency of a dependency. You've gone one too many layers deep. Making a mirror is gonna take too much time so you just edit the code directly. 
 
 You can't commit `node_modules`. Your code's gonna be deleted.  
 
