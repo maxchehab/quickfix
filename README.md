@@ -1,6 +1,3 @@
-# quickfix
-Detects and saves local changes to dependencies that are protected by .gitignore.
-
 ## Why?
 
 You've worked 8,000 million-bazillion hours on 4 cups of coffee a minute trying to fix some stupid bug. It's 2am. If it's not fixed by morning Australia will cease to be a country. 
