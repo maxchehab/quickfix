@@ -28,11 +28,42 @@ Quickfix will save your changes to a `__quickfix__` folder, and then later you c
 Boom. Work saved. 
 
 ## Installation
+
+### Local (preferred)
+
+```bash 
+$ yarn add --dev quickfix
+```
+
+Add `npm-scripts` and add `quickfix` as a `postinstall` hook in your `package.json`:
+
+``` json
+{
+  "scripts": {
+    "quickfix": "quickfix",
+    "quickfix:push": "quickfix push",
+    "postinstall": "quickfix"
+  }
+}
+```
+
+After making changes in `node_modules` run the command:
+```bash
+$ yarn quickfix:push
+```
+To update changes after installing a workspace using quickfix run:
+
+```bash
+$ yarn quickfix
+```
+
+### Global
+
 ```bash 
 $ yarn global add quickfix
 ```
 
-Add `quickfix` as a `postinstall` attribute in your `package.json`:
+Add `quickfix` as a `postinstall` hook in your `package.json`:
 
 ``` json
 {
@@ -40,11 +71,11 @@ Add `quickfix` as a `postinstall` attribute in your `package.json`:
 }
 ```
 
-## Instructions
 After making changes in `node_modules` run the command:
 ```bash
 $ quickfix push
 ```
+
 To update changes after installing a workspace using quickfix run:
 
 ```bash
